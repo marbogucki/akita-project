@@ -1,0 +1,5 @@
+<div *ngFor="let driver of drivers$ | async">
+  <h4>{{ driver.fullName }}</h4>
+  <button (click)="removeDriver(driver)">Remove</button>
+  <hr />
+</div>
