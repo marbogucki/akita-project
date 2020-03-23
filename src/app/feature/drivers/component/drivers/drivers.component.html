@@ -1,5 +1,6 @@
 <div *ngFor="let driver of drivers$ | async">
   <h4>{{ driver.fullName }}</h4>
+  <p *ngIf="driver.postalCode">Postal code: {{ driver.postalCode }}</p>
   <button (click)="removeDriver(driver)">Remove</button>
   <hr />
 </div>
