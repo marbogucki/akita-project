@@ -49,6 +49,19 @@ describe('DriversService', () => {
     req.flush(driversMock);
   }));
 
+  it('should add driver', async(() => {
+    const driverMock: Partial<DriverApiResponse> = { id: 15, name: 'Iwona Michalska' };
+
+    spyOn(driversStore, 'add').and.callThrough();
+    driversService.addDriver(driverMock as Driver).subscribe(() => {
+      expect(driverMock.id).toEqual(15);
+      expect(driversStore.add).toHaveBeenCalledTimes(1);
+    });
+
+    const req: TestRequest = httpTestingController.expectOne(driversApiUrl);
+    expect(req.request.method).toBe(ApiMethods.POST);
+    req.flush(driversMock);
+  }));
 
   it('should remove driver', async(() => {
     spyOn(driversStore, 'remove').and.callThrough();

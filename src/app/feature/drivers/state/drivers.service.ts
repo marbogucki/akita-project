@@ -15,13 +15,37 @@ export class DriversService {
   constructor(
     private httpService: HttpService,
     private driversStore: DriversStore
-  ) { }
+  ) {}
 
   public getDrivers(): Observable<Driver[]> {
     return this.httpService.get<DriverApiResponse[]>(this.urlDrivers)
       .pipe(
         map((drivers: DriverApiResponse[]) => this.transformDrivers(drivers)),
         tap((drivers: Driver[]) => this.driversStore.set(drivers))
+      );
+  }
+
+  public getDriverById(driverId: number): Observable<Driver> {
+    return this.httpService.get<DriverApiResponse>(`${this.urlDrivers}/${driverId}`)
+      .pipe(
+        map((driver: DriverApiResponse) => this.transformDriversItem(driver)),
+        tap((driver: Driver) => this.driversStore.add(driver))
+      );
+  }
+
+  public addDriver(driver: Partial<Driver>): Observable<Partial<Driver>> {
+    return this.httpService.add<Partial<Driver>>(this.urlDrivers, driver)
+      .pipe(
+        map((driverItem: DriverApiResponse) => this.transformDriversItem(driverItem)),
+        tap((driverItem: Driver) => this.driversStore.add(driverItem))
+      );
+  }
+
+  public updateDriver(driver: Partial<Driver>): Observable<Partial<Driver>> {
+    return this.httpService.update<Partial<Driver>>(`${this.urlDrivers}/${driver.id}`, driver)
+      .pipe(
+        map((driverItem: DriverApiResponse) => this.transformDriversItem(driverItem)),
+        tap((driverItem: Driver) => this.driversStore.update(driverItem.id, driverItem))
       );
   }
 
@@ -32,16 +56,18 @@ export class DriversService {
       );
   }
 
-  private transformDrivers(drivers: DriverApiResponse[]): Driver[] {
-    return drivers.map((driver: DriverApiResponse) => {
-      const {
-        id,
-        name: fullName,
-        email = '',
-        address: { street = '', city = '', zipcode: postalCode = '' } = {} as AddressApiResponse
-      }: DriverApiResponse = driver;
+  private transformDrivers(driver: DriverApiResponse[]): Driver[] {
+    return driver.map((driverItem: DriverApiResponse) => this.transformDriversItem(driverItem));
+  }
 
-      return { id, fullName, email, street, city, postalCode };
-    });
+  private transformDriversItem(driver: DriverApiResponse): Driver {
+    const {
+      id,
+      name: fullName,
+      email = '',
+      address: { street = '', city = '', zipcode: postalCode = '' } = {} as AddressApiResponse
+    }: DriverApiResponse = driver;
+
+    return { id, fullName, email, street, city, postalCode };
   }
 }

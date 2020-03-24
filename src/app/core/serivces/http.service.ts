@@ -14,6 +14,14 @@ export class HttpService {
     return this.http.get<T>(url).pipe(catchError(this.handleError));
   }
 
+  public add<T>(url: string, body: T): Observable<T> {
+    return this.http.post<T>(url, body).pipe(catchError(this.handleError));
+  }
+
+  public update<T>(url: string, body: T): Observable<T> {
+    return this.http.put<T>(url, body).pipe(catchError(this.handleError));
+  }
+
   public remove<T>(url: string): Observable<T> {
     return this.http.delete<T>(url).pipe(catchError(this.handleError));
   }

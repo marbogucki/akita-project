@@ -5,7 +5,6 @@ import { DriversQuery } from '@app/feature/drivers/state/drivers.query';
 import { DriversService } from '@app/feature/drivers/state/drivers.service';
 
 @Component({
-  selector: 'app-drivers',
   templateUrl: './drivers.component.html',
   styleUrls: ['./drivers.component.scss']
 })
@@ -27,5 +26,4 @@ export class DriversComponent implements OnInit {
       response => console.log(response)
     );
   }
-
 }
