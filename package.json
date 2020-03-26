@@ -53,6 +53,6 @@
     "typescript": "~3.7.5"
   },
   "husky": {
-    "pre-commit": "pretty-quick --staged & ng lint"
+    "pre-commit": "pretty-quick --staged && ng lint"
   }
 }
