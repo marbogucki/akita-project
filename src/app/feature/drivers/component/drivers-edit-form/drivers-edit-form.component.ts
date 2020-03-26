@@ -8,14 +8,13 @@ import { DriversService } from "@app/feature/drivers/state/drivers.service";
   templateUrl: "./drivers-edit-form.component.html",
   styleUrls: ["./drivers-edit-form.component.scss"],
 })
-
-
 export class DriversEditFormComponent implements OnInit {
   driverFormData: Driver;
 
   constructor(
     private driversQuery: DriversQuery,
     private route: ActivatedRoute,
+
     private driversService: DriversService
   ) {}
 
@@ -27,16 +26,11 @@ export class DriversEditFormComponent implements OnInit {
     return +this.route.snapshot.params.id;
   }
 
-  public editDriver(  driver: Partial<Driver>) {
-
-
-
+  public editDriver(driver: Partial<Driver>) {
     const driverValue: Partial<Driver> = { id: this.driverId, ...driver };
 
     this.driversService
-         .updateDriver(driverValue)
-
-
+      .updateDriver(driverValue)
 
       .subscribe((data) => console.log(data));
   }
