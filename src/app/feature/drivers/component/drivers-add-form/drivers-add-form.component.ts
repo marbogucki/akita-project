@@ -9,15 +9,9 @@ import { Driver } from '@app/feature/drivers/models/driver';
 export class DriversAddFormComponent {
   constructor(private driversService: DriversService) {}
 
-  public saveDriver
-  
-  (driverValue: Partial<Driver>): void  {
+  public saveDriver(driverValue: Partial<Driver>): void {
     this.driversService
-      .addDriver(
-        driverValue
-      )
-      .subscribe(
-        (data) => console.log(data)
-      )
+      .addDriver(driverValue)
+      .subscribe((data) => console.log(data));
   }
 }
