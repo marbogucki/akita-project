@@ -1,19 +1,19 @@
-import { Injectable } from "@angular/core";
-import { HttpService } from "@app/core/serivces/http.service";
-import { Observable } from "rxjs";
-import { map, tap } from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { HttpService } from '@app/core/serivces/http.service';
+import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import {
   AddressApiResponse,
   Driver,
   DriverApiResponse,
-} from "@app/feature/drivers/models/driver";
-import { DriversStore } from "@app/feature/drivers/state/drivers.store";
+} from '@app/feature/drivers/models/driver';
+import { DriversStore } from '@app/feature/drivers/state/drivers.store';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class DriversService {
-  private readonly urlDrivers: string = "drivers";
+  private readonly urlDrivers: string = 'drivers';
 
   constructor(
     private httpService: HttpService,
@@ -74,11 +74,11 @@ export class DriversService {
     const {
       id,
       name: fullName,
-      email = "",
+      email = '',
       address: {
-        street = "",
-        city = "",
-        zipcode: postalCode = "",
+        street = '',
+        city = '',
+        zipcode: postalCode = '',
       } = {} as AddressApiResponse,
     }: DriverApiResponse = driver;
 

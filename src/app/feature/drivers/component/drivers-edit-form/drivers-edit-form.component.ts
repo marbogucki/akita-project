@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { Driver } from "@app/feature/drivers/models/driver";
-import { DriversQuery } from "@app/feature/drivers/state/drivers.query";
-import { ActivatedRoute } from "@angular/router";
-import { DriversService } from "@app/feature/drivers/state/drivers.service";
+import { Component, OnInit } from '@angular/core';
+import { Driver } from '@app/feature/drivers/models/driver';
+import { DriversQuery } from '@app/feature/drivers/state/drivers.query';
+import { ActivatedRoute } from '@angular/router';
+import { DriversService } from '@app/feature/drivers/state/drivers.service';
 
 @Component({
-  templateUrl: "./drivers-edit-form.component.html",
-  styleUrls: ["./drivers-edit-form.component.scss"],
+  templateUrl: './drivers-edit-form.component.html',
+  styleUrls: ['./drivers-edit-form.component.scss'],
 })
 export class DriversEditFormComponent implements OnInit {
   driverFormData: Driver;
@@ -27,11 +27,13 @@ export class DriversEditFormComponent implements OnInit {
   }
 
   public editDriver(driver: Partial<Driver>) {
-    const driverValue: Partial<Driver> = { id: this.driverId, ...driver };
+    const driverValue: Partial<Driver> = {
+      id: this.driverId,
+      ...driver,
+    };
 
     this.driversService
       .updateDriver(driverValue)
-
       .subscribe((data) => console.log(data));
   }
 

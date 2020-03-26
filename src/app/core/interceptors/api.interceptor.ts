@@ -3,9 +3,9 @@ import {
   HttpHandler,
   HttpInterceptor,
   HttpRequest,
-} from "@angular/common/http";
-import { Observable } from "rxjs";
-import { environment } from "@environment/environment";
+} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from '@environment/environment';
 
 export class ApiInterceptor implements HttpInterceptor {
   intercept(

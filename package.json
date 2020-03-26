@@ -6,7 +6,8 @@
     "start": "concurrently \"json-server --watch db.json\" \"ng serve\"",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint && npx prettier --write '**/*'",
+    "lint": "ng lint",
+    "prettier": "prettier --write .",
     "e2e": "ng e2e"
   },
   "private": true,

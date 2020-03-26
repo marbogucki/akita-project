@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
-import { Driver, DriverApiResponse } from "@app/feature/drivers/models/driver";
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Driver, DriverApiResponse } from '@app/feature/drivers/models/driver';
 
 @Component({
-  selector: "app-drivers-form",
-  templateUrl: "./drivers-form.component.html",
-  styleUrls: ["./drivers-form.component.scss"],
+  selector: 'app-drivers-form',
+  templateUrl: './drivers-form.component.html',
+  styleUrls: ['./drivers-form.component.scss'],
 })
 export class DriversFormComponent {
   @Input() set driverFormData(driverFormData: Partial<Driver>) {
@@ -46,11 +46,11 @@ export class DriversFormComponent {
 
   private createDriverForm(): FormGroup {
     return this.fb.group({
-      fullName: [""],
-      email: [""],
-      street: [""],
-      city: [""],
-      postalCode: [""],
+      fullName: [''],
+      email: [''],
+      street: [''],
+      city: [''],
+      postalCode: [''],
     });
   }
 }
