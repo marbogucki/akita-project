@@ -1,14 +1,13 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { Observable, throwError } from "rxjs";
+import { catchError } from "rxjs/operators";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class HttpService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   public get<T>(url: string): Observable<T> {
     return this.http.get<T>(url).pipe(catchError(this.handleError));
@@ -27,13 +26,14 @@ export class HttpService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    const errorMessage: string = error.error instanceof ErrorEvent
-      ? `An error occurred: , ${error.error.message}`
-      : `Backend returned code ${error.status}, body was: ${error.error}`;
+    const errorMessage: string =
+      error.error instanceof ErrorEvent
+        ? `An error occurred: , ${error.error.message}`
+        : `Backend returned code ${error.status}, body was: ${error.error}`;
 
     return throwError({
       status: error.status,
-      statusText: errorMessage
+      statusText: errorMessage,
     });
   }
 }

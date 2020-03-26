@@ -1,13 +1,13 @@
-import { DriversStore } from '@app/feature/drivers/state/drivers.store';
+import { DriversStore } from "@app/feature/drivers/state/drivers.store";
 
-describe('DriversStore', () => {
+describe("DriversStore", () => {
   let driversStore: DriversStore;
 
   beforeEach(() => {
     driversStore = new DriversStore();
   });
 
-  it('should be created', () => {
+  it("should be created", () => {
     expect(driversStore).toBeTruthy();
   });
 });
