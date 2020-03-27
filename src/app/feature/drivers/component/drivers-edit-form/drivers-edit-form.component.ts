@@ -34,7 +34,7 @@ export class DriversEditFormComponent implements OnInit {
 
     this.driversService
       .updateDriver(driverValue)
-      .subscribe((data) => console.log(data));
+      .subscribe(data => console.log(data));
   }
 
   private getDriver(): void {

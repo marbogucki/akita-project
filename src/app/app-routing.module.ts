@@ -6,7 +6,7 @@ const routes: Routes = [
     path: 'drivers',
     loadChildren: () =>
       import('./feature/drivers/drivers.module').then(
-        (module) => module.DriversModule
+        module => module.DriversModule
       ),
   },
 ];

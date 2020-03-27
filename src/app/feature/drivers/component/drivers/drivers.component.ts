@@ -23,6 +23,6 @@ export class DriversComponent implements OnInit {
   removeDriver(driver: Driver) {
     this.driversService
       .removeDrivers(driver)
-      .subscribe((response) => console.log(response));
+      .subscribe(response => console.log(response));
   }
 }
