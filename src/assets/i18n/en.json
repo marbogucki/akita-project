@@ -1,0 +1,17 @@
+{
+  "word": "language",
+
+  "drivers": {
+    "drivers": {
+      "name": "Full Name",
+      "email": "E-mail address",
+      "add-driver": {
+        "name": "Name",
+        "city": "City",
+        "postal-code": "Postal Code",
+        "street": "Street",
+        "btn-add-driver": "Save Driver"
+      }
+    }
+  }
+}

@@ -8,6 +8,7 @@ import { DriversComponent } from './component/drivers/drivers.component';
 import { DriversFormComponent } from './component/drivers-form/drivers-form.component';
 import { DriversAddFormComponent } from './component/drivers-add-form/drivers-add-form.component';
 import { DriversEditFormComponent } from './component/drivers-edit-form/drivers-edit-form.component';
+import { SharedModule } from '@app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,11 @@ import { DriversEditFormComponent } from './component/drivers-edit-form/drivers-
     DriversAddFormComponent,
     DriversEditFormComponent,
   ],
-  imports: [CommonModule, DriversRoutingModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    SharedModule,
+    DriversRoutingModule,
+  ],
 })
 export class DriversModule {}

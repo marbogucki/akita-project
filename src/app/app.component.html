@@ -2,4 +2,11 @@
   <li><a routerLink="/drivers">Drivers</a></li>
 </ul>
 
+<div>
+  <button (click)="changeLanguage('en')">En</button>
+  <button (click)="changeLanguage('pl')">Pl</button>
+
+  {{ 'word' | translate }}
+</div>
+
 <router-outlet></router-outlet>

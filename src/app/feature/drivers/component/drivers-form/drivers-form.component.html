@@ -1,28 +1,28 @@
 <form [formGroup]="driverForm" (ngSubmit)="onSubmitDriver()">
   <div>
-    <label>Name</label>
+    <label>{{ 'drivers.drivers.add-driver.name' | translate }}</label>
     <input type="text" formControlName="fullName" />
   </div>
 
   <div>
-    <label>Email</label>
+    <label>{{ 'drivers.drivers.email' | translate }}</label>
     <input type="text" formControlName="email" />
   </div>
 
   <div>
-    <label>City</label>
+    <label>{{ 'drivers.drivers.add-driver.city' | translate }}</label>
     <input type="text" formControlName="city" />
   </div>
 
   <div>
-    <label>Postal Code</label>
+    <label>{{ 'drivers.drivers.add-driver.postal-code' | translate }}</label>
     <input type="text" formControlName="postalCode" />
   </div>
 
   <div>
-    <label>Street</label>
+    <label>{{ 'drivers.drivers.add-driver.street' | translate }}</label>
     <input type="text" formControlName="street" />
   </div>
 
-  <button>Save Driver</button>
+  <button>{{ 'drivers.drivers.add-driver.btn-add-driver' | translate }}</button>
 </form>

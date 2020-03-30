@@ -1,0 +1,16 @@
+{
+  "word": "język",
+  "drivers": {
+    "drivers": {
+      "name": "Imię i nazwisko",
+      "email": "Adres e-mail",
+      "add-driver": {
+        "name": "Imię i nazwisko",
+        "city": "Miasto",
+        "postal-code": "Kod pocztowy",
+        "street": "Ulica",
+        "btn-add-driver": "Zapisz kierowcę"
+      }
+    }
+  }
+}
