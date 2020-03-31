@@ -11,7 +11,7 @@ export class AppTranslateService {
 
   public changeTranslate(lang: string): void {
     this.translate.use(lang);
-    this.appStore.update(state => ({ ...state, ui: lang }));
+    this.appStore.update(state => ({ ...state, ui: { ...state.ui, lang } }));
     localStorage.setItem('lang', lang);
   }
 
