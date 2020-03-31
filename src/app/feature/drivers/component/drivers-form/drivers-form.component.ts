@@ -11,9 +11,9 @@ export class DriversFormComponent {
   @Input() set driverFormData(driverFormData: Partial<Driver>) {
     this.fillDriverForm(driverFormData);
   }
-  @Output() driverFormOnSubmit: EventEmitter<
+  @Output() driverFormOnSubmit: EventEmitter<Partial<DriverApiResponse>> = new EventEmitter<
     Partial<DriverApiResponse>
-  > = new EventEmitter<Partial<DriverApiResponse>>();
+  >();
   driverForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
@@ -22,13 +22,7 @@ export class DriversFormComponent {
 
   public onSubmitDriver(): void {
     const driverForm: Partial<Driver> = this.driverForm.value;
-    const {
-      fullName,
-      email,
-      street,
-      city,
-      postalCode,
-    }: Partial<Driver> = driverForm;
+    const { fullName, email, street, city, postalCode }: Partial<Driver> = driverForm;
     const driverValue: Partial<DriverApiResponse> = {
       name: fullName,
       email,

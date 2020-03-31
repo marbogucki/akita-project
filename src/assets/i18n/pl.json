@@ -12,5 +12,11 @@
         "btn-add-driver": "Zapisz kierowcę"
       }
     }
+  },
+
+  "auth": {
+    "sign-in-btn": "Zaloguj się",
+    "login-label": "Login",
+    "password-label": "Hasło"
   }
 }

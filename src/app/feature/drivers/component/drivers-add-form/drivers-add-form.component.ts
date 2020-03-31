@@ -10,8 +10,6 @@ export class DriversAddFormComponent {
   constructor(private driversService: DriversService) {}
 
   public saveDriver(driverValue: Partial<Driver>): void {
-    this.driversService
-      .addDriver(driverValue)
-      .subscribe(data => console.log(data));
+    this.driversService.addDriver(driverValue).subscribe(data => console.log(data));
   }
 }

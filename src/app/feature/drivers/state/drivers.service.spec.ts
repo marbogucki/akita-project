@@ -1,9 +1,5 @@
 import { async, TestBed } from '@angular/core/testing';
-import {
-  HttpClientTestingModule,
-  HttpTestingController,
-  TestRequest,
-} from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController, TestRequest } from '@angular/common/http/testing';
 import { DriversService } from './drivers.service';
 import { Driver, DriverApiResponse } from '@app/feature/drivers/models/driver';
 import { DriversStore } from '@app/feature/drivers/state/drivers.store';
@@ -77,9 +73,7 @@ describe('DriversService', () => {
       expect(driversStore.remove).toHaveBeenCalledTimes(1);
     });
 
-    const req: TestRequest = httpTestingController.expectOne(
-      `${driversApiUrl}/9`
-    );
+    const req: TestRequest = httpTestingController.expectOne(`${driversApiUrl}/9`);
     expect(req.request.method).toBe(ApiMethods.DELETE);
     req.flush(driversMock);
   }));

@@ -18,11 +18,6 @@ import { SharedModule } from '@app/shared/shared.module';
     DriversAddFormComponent,
     DriversEditFormComponent,
   ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    SharedModule,
-    DriversRoutingModule,
-  ],
+  imports: [CommonModule, ReactiveFormsModule, SharedModule, DriversRoutingModule],
 })
 export class DriversModule {}

@@ -13,5 +13,9 @@
         "btn-add-driver": "Save Driver"
       }
     }
+  },
+
+  "auth": {
+    "sign-in-btn": "Login"
   }
 }

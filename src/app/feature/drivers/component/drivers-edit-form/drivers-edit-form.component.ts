@@ -32,9 +32,7 @@ export class DriversEditFormComponent implements OnInit {
       ...driver,
     };
 
-    this.driversService
-      .updateDriver(driverValue)
-      .subscribe(data => console.log(data));
+    this.driversService.updateDriver(driverValue).subscribe(data => console.log(data));
   }
 
   private getDriver(): void {
@@ -43,8 +41,6 @@ export class DriversEditFormComponent implements OnInit {
       return;
     }
 
-    this.driversService
-      .getDriverById(this.driverId)
-      .subscribe((driver: Driver) => (this.driverFormData = driver));
+    this.driversService.getDriverById(this.driverId).subscribe((driver: Driver) => (this.driverFormData = driver));
   }
 }

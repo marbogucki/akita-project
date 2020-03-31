@@ -11,18 +11,13 @@ import { DriversService } from '@app/feature/drivers/state/drivers.service';
 export class DriversComponent implements OnInit {
   public drivers$: Observable<Driver[]> = this.driversQuery.selectAll();
 
-  constructor(
-    private driversService: DriversService,
-    private driversQuery: DriversQuery
-  ) {}
+  constructor(private driversService: DriversService, private driversQuery: DriversQuery) {}
 
   ngOnInit(): void {
     this.driversService.getDrivers().subscribe();
   }
 
   removeDriver(driver: Driver) {
-    this.driversService
-      .removeDrivers(driver)
-      .subscribe(response => console.log(response));
+    this.driversService.removeDrivers(driver).subscribe(response => console.log(response));
   }
 }

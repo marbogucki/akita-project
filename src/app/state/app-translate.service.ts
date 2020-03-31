@@ -7,11 +7,7 @@ import { AppStore } from '@app/state/app.store';
   providedIn: 'root',
 })
 export class AppTranslateService {
-  constructor(
-    private translate: TranslateService,
-    private appQuery: AppQuery,
-    private appStore: AppStore
-  ) {}
+  constructor(private translate: TranslateService, private appQuery: AppQuery, private appStore: AppStore) {}
 
   public changeTranslate(lang: string): void {
     this.translate.use(lang);

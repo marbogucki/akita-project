@@ -6,16 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { environment } from '@environment/environment';
+import { fakeBackendProvider } from '../fake-backend';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    CoreModule,
-    AppRoutingModule,
-    environment.production ? [] : AkitaNgDevtools.forRoot(),
-  ],
-  providers: [],
+  imports: [BrowserModule, CoreModule, AppRoutingModule, environment.production ? [] : AkitaNgDevtools.forRoot()],
+  providers: [fakeBackendProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

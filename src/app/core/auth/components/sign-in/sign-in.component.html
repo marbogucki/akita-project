@@ -1,0 +1,21 @@
+<form [formGroup]="signInForm" (ngSubmit)="signIn()">
+  <div>
+    <label>
+      {{ 'auth.login-label' | translate }}: <br />
+      <input type="text" formControlName="login" />
+    </label>
+  </div>
+
+  <br />
+
+  <div>
+    <label>
+      {{ 'auth.password-label' | translate }}: <br />
+      <input type="password" formControlName="password" />
+    </label>
+  </div>
+
+  <br />
+
+  <button>{{ 'auth.sign-in-btn' | translate }}</button>
+</form>
