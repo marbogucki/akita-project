@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AppTranslateService } from '@app/state/app-translate.service';
-import { AppQuery } from '@app/state/app.query';
-import { AuthService } from '@app/core/auth/state/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +8,8 @@ import { AuthService } from '@app/core/auth/state/auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'akita-project';
-  authUser$ = this.appQuery.user$;
 
-  constructor(
-    private appTranslate: AppTranslateService,
-    private appQuery: AppQuery,
-    private authService: AuthService
-  ) {}
+  constructor(private appTranslate: AppTranslateService) {}
 
   ngOnInit(): void {
     this.appTranslate.setDefaultLang();
@@ -24,9 +17,5 @@ export class AppComponent implements OnInit {
 
   changeLanguage(lang: string) {
     this.appTranslate.changeTranslate(lang);
-  }
-
-  logout() {
-    this.authService.signOut();
   }
 }

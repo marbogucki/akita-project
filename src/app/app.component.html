@@ -6,14 +6,6 @@
 <button (click)="changeLanguage('en')">EN</button>
 <button (click)="changeLanguage('pl')">PL</button>
 
-<div>
-  <pre>
-  {{ authUser$ | async | json }}
-</pre
-  >
-
-  <button *ngIf="authUser$ | async" (click)="logout()">Wyloguj</button>
-  <br /><br />
-</div>
+<app-sign-out></app-sign-out>
 
 <router-outlet></router-outlet>
