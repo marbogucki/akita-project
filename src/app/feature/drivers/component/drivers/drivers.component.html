@@ -5,6 +5,11 @@
   <p>{{ 'drivers.drivers.email' | translate }}: {{ driver.email }}</p>
   <p *ngIf="driver.postalCode">Postal code: {{ driver.postalCode }}</p>
   <button [routerLink]="['edit-driver', driver.id]">Edit</button>
-  <button (click)="removeDriver(driver)">Remove</button>
+  <button mat-raised-button color="primary" (click)="removeDriver(driver)">
+    Remove
+  </button>
+  <button mat-raised-button color="primary" (click)="saveDriver(driver)">
+    Save
+  </button>
   <hr />
 </div>

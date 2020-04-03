@@ -3,6 +3,9 @@ import { Driver } from '@app/feature/drivers/models/driver';
 import { Observable } from 'rxjs';
 import { DriversQuery } from '@app/feature/drivers/state/drivers.query';
 import { DriversService } from '@app/feature/drivers/state/drivers.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '@app/shared/components/confirm-dialog/confirm-dialog.component';
+import { ConfirmDialogService } from '@app/core/services/confirm-dialog.service';
 
 @Component({
   templateUrl: './drivers.component.html',
@@ -13,7 +16,8 @@ export class DriversComponent implements OnInit {
 
   constructor(
     private driversService: DriversService,
-    private driversQuery: DriversQuery
+    private driversQuery: DriversQuery,
+    private confirmDialog: ConfirmDialogService
   ) {}
 
   ngOnInit(): void {
@@ -21,8 +25,30 @@ export class DriversComponent implements OnInit {
   }
 
   removeDriver(driver: Driver) {
-    this.driversService
-      .removeDrivers(driver)
-      .subscribe(response => console.log(response));
+    this.confirmDialog
+      .showDialog({
+        title: 'Are you sure you want to remove driver ?',
+        btnActionInfo: 'Remove',
+        item: driver.id,
+      })
+      .subscribe(result => {
+        console.log(result);
+      });
+
+    // this.driversService
+    //   .removeDrivers(driver)
+    //   .subscribe(response => console.log(response));
+  }
+
+  saveDriver(driver: Driver) {
+    this.confirmDialog
+      .showDialog({
+        title: 'Are you sure you want to Save driver ?',
+        btnActionInfo: 'Accept',
+        item: driver,
+      })
+      .subscribe(result => {
+        console.log(result);
+      });
   }
 }

@@ -1,0 +1,12 @@
+<div>
+  <header>
+    <h2>{{ data.title }}</h2>
+  </header>
+
+  <footer>
+    <button mat-raised-button [mat-dialog-close]="data">
+      {{ data.btnActionInfo }}
+    </button>
+    <button mat-raised-button (click)="onCancel()">Cancel</button>
+  </footer>
+</div>
