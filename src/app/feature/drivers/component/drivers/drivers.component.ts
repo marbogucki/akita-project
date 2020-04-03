@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { DriversQuery } from '@app/feature/drivers/state/drivers.query';
 import { DriversService } from '@app/feature/drivers/state/drivers.service';
 import { ConfirmDialogService } from '@app/core/services/confirm-dialog.service';
+import { DataConfirmDialog } from '@app/core/models/confirm-dialog';
 
 @Component({
   templateUrl: './drivers.component.html',
@@ -23,12 +24,14 @@ export class DriversComponent implements OnInit {
   }
 
   removeDriver(driver: Driver) {
+    const dataConfirmDialog: DataConfirmDialog<number> = {
+      title: 'Are you sure you want to remove driver ?',
+      btnActionInfo: 'Remove',
+      item: driver.id,
+    };
+
     this.confirmDialog
-      .showDialog<number>({
-        title: 'Are you sure you want to remove driver ?',
-        btnActionInfo: 'Remove',
-        item: driver.id,
-      })
+      .showDialog<number>(dataConfirmDialog)
       .subscribe(result => {
         console.log(result);
       });
@@ -39,12 +42,14 @@ export class DriversComponent implements OnInit {
   }
 
   saveDriver(driver: Driver) {
+    const dataConfirmDialog: DataConfirmDialog<Driver> = {
+      title: 'Are you sure you want to Save driver ?',
+      btnActionInfo: 'Accept',
+      item: driver,
+    };
+
     this.confirmDialog
-      .showDialog<Driver>({
-        title: 'Are you sure you want to Save driver ?',
-        btnActionInfo: 'Accept',
-        item: driver,
-      })
+      .showDialog<Driver>(dataConfirmDialog)
       .subscribe(result => {
         console.log(result);
       });
