@@ -1,24 +1,18 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { DataConfirmDialog } from '@app/core/models/confirm-dialog';
 
 @Component({
-  selector: 'app-confirm-dialog',
   templateUrl: './confirm-dialog.component.html',
   styleUrls: ['./confirm-dialog.component.scss'],
 })
-export class ConfirmDialogComponent {
+export class ConfirmDialogComponent<T> {
   constructor(
-    public dialogRef: MatDialogRef<ConfirmDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Partial<DataDialog>
+    public dialogRef: MatDialogRef<ConfirmDialogComponent<T>>,
+    @Inject(MAT_DIALOG_DATA) public data: Partial<DataConfirmDialog<T>>
   ) {}
 
   onCancel() {
     this.dialogRef.close();
   }
-}
-
-export interface DataDialog {
-  title: string;
-  btnActionInfo: string;
-  item: any;
 }

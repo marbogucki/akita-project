@@ -3,8 +3,6 @@ import { Driver } from '@app/feature/drivers/models/driver';
 import { Observable } from 'rxjs';
 import { DriversQuery } from '@app/feature/drivers/state/drivers.query';
 import { DriversService } from '@app/feature/drivers/state/drivers.service';
-import { MatDialog } from '@angular/material/dialog';
-import { ConfirmDialogComponent } from '@app/shared/components/confirm-dialog/confirm-dialog.component';
 import { ConfirmDialogService } from '@app/core/services/confirm-dialog.service';
 
 @Component({
@@ -26,7 +24,7 @@ export class DriversComponent implements OnInit {
 
   removeDriver(driver: Driver) {
     this.confirmDialog
-      .showDialog({
+      .showDialog<number>({
         title: 'Are you sure you want to remove driver ?',
         btnActionInfo: 'Remove',
         item: driver.id,
@@ -42,7 +40,7 @@ export class DriversComponent implements OnInit {
 
   saveDriver(driver: Driver) {
     this.confirmDialog
-      .showDialog({
+      .showDialog<Driver>({
         title: 'Are you sure you want to Save driver ?',
         btnActionInfo: 'Accept',
         item: driver,
